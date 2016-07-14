@@ -13,7 +13,7 @@ class TweetStreamer(TwythonStreamer):
 def do_twitter(data):
     twitter = auth()
     if "fuck pokemon" in data['text'].lower():
-        tl = twitter.get_user_timeline(count=50)
+        tl = twitter.get_user_timeline()
         tweets = [t["text"] for t in tl]
         if data['text'] not in tweets:
             twitter.retweet(id=data['id'])
