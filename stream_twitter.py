@@ -12,7 +12,7 @@ class TweetStreamer(TwythonStreamer):
 
 def do_twitter(data):
     twitter = auth()
-    if "fuck pokemon" in data['text'].lower() and not data['retweeted']:
+    if "fuck pokemon" in data['text'].lower() and data['retweeted'] == "false":
         twitter.retweet(id=data['id'])
 
 
